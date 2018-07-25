@@ -89,13 +89,13 @@ $result_set=mysqli_query($con, $sql_query);
 
 <form name="registration" method="post" action="#" enctype="multipart/form-data" align="center">
 <input type="hidden" name="id" value="<?php echo $read_value['id']; ?>">
-FIRST-NAME:<input type="text" name="firstname" value="<?php echo $read_value['first_name']; ?>"></br>
-LAST-NAME:<input type="text" name="lastname" value="<?php echo $read_value['last_name']; ?>"></br>
-EMAIL-ID:<input type="text" name="email" value="<?php echo $read_value['email_id']; ?>"></br>
-GENDER:<input type="radio" name="gender" value="male">Male
-<input type="radio" name="gender" value="female">Female</br>
-MOBILE-NUMBER:<input type="text" name="phonenumber" value="<?php echo $read_value['phonenumber']; ?>"></br>
-IMAGE:<input type="file" name="image"></br>
+FIRST-NAME:<input type="text" name="firstname" value="<?php echo $read_value['first_name']; ?>"/><br/><br/>
+LAST-NAME:<input type="text" name="lastname" value="<?php echo $read_value['last_name']; ?>"/><br/><br/>
+EMAIL-ID:<input type="text" name="email" value="<?php echo $read_value['email_id']; ?>"/><br/><br/>
+GENDER:<input type="radio" name="gender" value="male" <?php echo ($read_value['gender']=='male')?'checked':''?> />Male
+<input type="radio" name="gender" value="female" <?php echo ($read_value['gender']=='female')?'checked':''?>/>Female<br/><br/>
+MOBILE-NUMBER:<input type="text" name="phonenumber" value="<?php echo $read_value['phonenumber']; ?>"/><br/><br/>
+IMAGE:<input type="file" name="image"/><br/><br/>
 <input type="submit" name="submit" value="submit">
 </form>
 <div id ="form">
