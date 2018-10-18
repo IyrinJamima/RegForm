@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Registration</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script></head>
+<body>
+    <form>
+    <label>Name:</label><input type = "text" name = "name" id = "regname" value = ""/><br /><br />
+    <label>Username:</label><input type = "text" name = "username" id = "regusername" value =""/><br /><br />
+    <label>Password:</label><input type = "password" name = "password" id = "regpassword" value = ""/><br /><br />
+    <input type = "button" name = "submit" value ="register" onclick = "register()"/>
+    </form>
+<script>
+  function register(){
+      var name = $("#regname").val();
+      var username = $("#regusername").val();
+      var password = $("#regpassword").val();
+      console.log(name);
+      console.log(username);
+      console.log(password);
+
+	$.ajax({
+	    method: "POST",
+	    url:"registration.php",
+	    data: { name: name, username: username, password: password}
+	}).done(function(msg) {
+	   console.log("data saved: " + msg); 
+           if(msg == "Inserted Successfully") {
+                location.href='login.html';
+           }else{
+               alert(msg);
+            }     
+	});
+}
+</script>
+</body>
+</html>

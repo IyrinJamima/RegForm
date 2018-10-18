@@ -1,0 +1,40 @@
+<html>
+   <head>
+      <title>Login</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+   </head>
+   <body>
+      <form>
+         <h1 id = "logusername"> </h1>
+         <label>Username:</label>
+         <input type = "text" name = "username" id="username" value=""><br /><br />
+         <label>Password:</label>
+         <input type = "password" name = "password" id="password" value=""><br /><br />
+         <input type = "button" name = "submit" value="login" onclick = "login()">
+      </form>
+   </body>
+   <script>
+      function login(){
+         console.log("Loooooooooool");
+         var username = $("#username").val();
+         var password = $("#password").val();
+         console.log(username);
+         console.log(password);
+         $.ajax({
+            method:"POST",
+            url:"login.php",
+            data:{username: username, password: password}
+         })
+         .done(function(response){
+            console.log(response);
+            var response_object = JSON.parse(response);
+            console.log(response_object.message);
+            var element = document.getElementById("logusername");
+            element.innerHTML = response_object.message;
+            console.log(element);
+
+         });
+      } 
+    </script>
+</html>               
+                

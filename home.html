@@ -1,0 +1,21 @@
+<html>
+<head>
+<body>
+<h1 id = "usr"></h1>
+<script>
+var pathname = window.location.pathname; // Returns path only
+var url      = window.location.href;
+console.log(url);
+var id = location.search.split('id=')[1] ? location.search.split('&')[0]: 'myDefaultValue';
+var id =(location.search.split('id=')[1] ||'').split('&')[0]
+var name = location.search.split('name=')[1] ? location.search.split('name=')[1] : 'myDefaultValue';
+console.log(id);
+console.log(name);
+
+var element = document.getElementById("usr");
+element.innerHTML = name;
+//var username = (document.getElementByid.value);
+//console.log("welcome" + username);
+//console.log(param_values);
+</script>
+</html>
